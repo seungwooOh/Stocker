@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stocker</title>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
+
 <body>
+    <script src="./axios.min.js"></script>
     <!-- <div id="wrap"> -->
-        <header>
-            <a href="#"><h1>Logo</h1></a>
-        </header>
-        <main>
-            <a href="#">
-                <img src="./asset/img1.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-            <a href="#">
-                <img src="./asset/img2.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-            <a href="#">
-                <img src="./asset/img3.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-            <a href="#">
-                <img src="./asset/img4.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-            <a href="#">
-                <img src="./asset/img5.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-            <a href="#">
-                <img src="./asset/img1.jpg" alt="">
-                <div>
-                    <strong>title</strong>
-                    <small>author name</small>
-                </div>
-            </a>
-        </main>
+    <header>
+        <a href="#">
+            <h1>Logo</h1>
+        </a>
+    </header>
+    <main id="container">
+        <!-- <a href="#" class="el">
+            <img src="./asset/img1.jpg" alt="">
+            <div>
+                <strong>title</strong>
+                <small>author name</small>
+            </div>
+        </a> -->
+    </main>
+
+    <!--
+        modal -> absolute
+        modal -> display:none;
+    -->
+    <div id="modal">
+        <div id="modal_inner">
+            modal
+        </div>
+    </div>
+    <script>
+        const url = './data.json';
+        axios.get(url)
+            .then(function (res) {
+                // console.log(res.data);
+                res.data.forEach(obj => {
+                    const el = createEl(obj);
+                    container.append(el);
+                });
+            });
+
+        function createEl(obj) {
+            const el = document.createElement('a');
+            el.className = 'item';
+            el.innerHTML =
+                `
+                    <img src="${obj.file_path}" alt="image - ${obj.title}">
+                        <div>
+                            <strong>${obj.title}</strong>
+                            <small>${obj.author_name}</small>
+                        </div>
+                    `;
+            // console.log(el);
+
+            // el.onclick = setModal;
+
+            el.onclick = function () {
+                setModal(obj);
+            };
+
+            return el;
+        }
+
+        function setModal(obj) {
+            const modal = document.getElementById('modal_inner');
+            modal.innerHTML = `
+                    <h2>${obj.title}</h2>
+                    <small>${obj.author_name}</small>
+                    <img src="${obj.file_path}">
+                `;
+            // console.log(obj);
+        }
+    </script>
+
+    <script></script>
     <!-- </div> -->
 </body>
+
 </html>

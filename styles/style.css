@@ -27,26 +27,26 @@ header h1 {
     text-align: center;
 }
 /* main */
-main {
+#container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 50px;
 }
 
-main a {
+#container .item {
     position: relative;
     flex-basis: 30%;
     margin-bottom: 2vw;
 }
 
-a img {
+.item img {
     height: calc(30vw * 0.75);
     object-fit: cover;
     object-position: bottom;
 }
 
-a div {
+.item div {
     display: flex;
     /* display: none; */
     position: absolute;
@@ -62,7 +62,7 @@ a div {
     transition: all .2s;
 }
 
-main a:hover> div {
+#container .item:hover> div {
     /* display: flex; */
     opacity: 1;
 }
