@@ -18,35 +18,36 @@ a {
 
 /* header */
 header {
-    padding: 10px 20px;
-    background: #ea545480;
+    padding: 2.5vh;
+    background: #2d4059;
     color: #fff;
 }
 
 header h1 {
-    text-align: center;
+    padding-left: 20px;
 }
+
 /* main */
-main {
+#container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-main a {
+#container .item {
     position: relative;
     flex-basis: 30%;
     margin-bottom: 2vw;
 }
 
-a img {
+.item img {
     height: calc(30vw * 0.75);
     object-fit: cover;
     object-position: bottom;
 }
 
-a div {
+.item div {
     display: flex;
     /* display: none; */
     position: absolute;
@@ -62,9 +63,65 @@ a div {
     transition: all .2s;
 }
 
-main a:hover> div {
+#container .item:hover> div {
     /* display: flex; */
     opacity: 1;
 }
 
+/* main > modal*/
+#modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .7);
+}
+
+#modal.show {
+    display: flex;
+}
+
+#modal_inner {
+    background: #fff;
+    width: 80vw;
+    height: 90vh;
+    padding: 30px;
+    overflow-y: scroll;
+}
+
+#modal_inner::-webkit-scrollbar {
+    display: none;
+}
+
+#modal_inner > * {
+    display: block;
+    margin-top: 20px;
+}
+
+#modal_inner img {
+    max-height: 94%;
+    object-fit: contain;
+}
+
+
 /* footer */
+#btntop {
+    position: fixed;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    bottom: 30px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#btntop.show {
+    display: none;
+}
