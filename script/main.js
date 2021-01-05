@@ -15,13 +15,13 @@ function setModal(obj) {
 function hideModal(e) {
     if (e.target == modal) {
         modal.classList.remove('show');
-        btntop.classList.add('show');
+        btntop.classList.remove('show');
     }
 }
 
 function showModal() {
     modal.classList.add('show');
-    btntop.classList.remove('show');
+    btntop.classList.add('show');
 }
 
 function createEl(obj) {
