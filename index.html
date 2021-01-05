@@ -9,77 +9,32 @@
 </head>
 
 <body>
-    <script src="./axios.min.js"></script>
     <!-- <div id="wrap"> -->
     <header>
         <a href="#">
-            <h1>Logo</h1>
+            <h1>Stocker</h1>
         </a>
     </header>
-    <main id="container">
+    <main>
         <!-- <a href="#" class="el">
-            <img src="./asset/img1.jpg" alt="">
-            <div>
-                <strong>title</strong>
-                <small>author name</small>
-            </div>
-        </a> -->
-    </main>
+                <img src="./asset/img1.jpg" alt="">
+                <div>
+                    <strong>title</strong>
+                    <small>author name</small>
+                </div>
+            </a> -->
 
-    <!--
-        modal -> absolute
-        modal -> display:none;
-    -->
-    <div id="modal">
-        <div id="modal_inner">
-            modal
+        <div id="container"></div>
+
+        <div id="modal">
+            <div id="modal_inner"></div>
         </div>
-    </div>
-    <script>
-        const url = './data.json';
-        axios.get(url)
-            .then(function (res) {
-                // console.log(res.data);
-                res.data.forEach(obj => {
-                    const el = createEl(obj);
-                    container.append(el);
-                });
-            });
 
-        function createEl(obj) {
-            const el = document.createElement('a');
-            el.className = 'item';
-            el.innerHTML =
-                `
-                    <img src="${obj.file_path}" alt="image - ${obj.title}">
-                        <div>
-                            <strong>${obj.title}</strong>
-                            <small>${obj.author_name}</small>
-                        </div>
-                    `;
-            // console.log(el);
-
-            // el.onclick = setModal;
-
-            el.onclick = function () {
-                setModal(obj);
-            };
-
-            return el;
-        }
-
-        function setModal(obj) {
-            const modal = document.getElementById('modal_inner');
-            modal.innerHTML = `
-                    <h2>${obj.title}</h2>
-                    <small>${obj.author_name}</small>
-                    <img src="${obj.file_path}">
-                `;
-            // console.log(obj);
-        }
-    </script>
-
-    <script></script>
+        <button onclick="topFunction()" type="button" id="btntop"><img src="./img/arrow-top.png" alt="Top"></button>
+    </main>
+    <script src="./script/axios.min.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./script/topbutton.js"></script>
     <!-- </div> -->
 </body>
 
