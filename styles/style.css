@@ -121,3 +121,7 @@ header h1 {
     width: 30px;
     cursor: pointer;
 }
+
+#btntop.show {
+    display: none;
+}
