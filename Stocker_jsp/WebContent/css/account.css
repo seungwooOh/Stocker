@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#content .err_msg {
+	margin-bottom: 20px;
+	color: red;
+}
+
+#content form {
+	border: 1px solid #bcbcbc;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 300px;
+}
+
+#content from > * {
+	padding: 10px;
+	margin-bottom: 10px;
+}
